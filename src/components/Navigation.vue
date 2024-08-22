@@ -28,17 +28,17 @@ onMounted(() => {
       <nav class="flex space-x-4">
         <!-- <a href="#" class="text-white hover:text-amber-300">Main</a> -->
         <router-link to="/" class="text-white hover:text-amber-300">Main</router-link>
-        <router-link to="/" class="text-white hover:text-amber-300">Slots</router-link>
-        <router-link to="/" class="pointer-events-none text-white opacity-20 hover:text-amber-300">Mini Games</router-link>
-        <router-link to="/" class="pointer-events-none text-white opacity-20 hover:text-amber-300">Promotions</router-link>
-        <router-link to="/" class="pointer-events-none text-white opacity-20 hover:text-amber-300">About Us</router-link>
-        <router-link to="/" class="pointer-events-none text-white opacity-20 hover:text-amber-300">Contact</router-link>
+        <router-link to="/slots" class="text-white hover:text-amber-300">Slots</router-link>
+        <router-link to="/games" class="pointer-events-none text-white opacity-20 hover:text-amber-300">Games</router-link>
+        <router-link to="/promotions" class="pointer-events-none text-white opacity-20 hover:text-amber-300">Promotions</router-link>
+        <router-link to="/about-us" class="pointer-events-none text-white opacity-20 hover:text-amber-300">About Us</router-link>
+        <router-link to="/contact" class="pointer-events-none text-white opacity-20 hover:text-amber-300">Contact</router-link>
       </nav>
 
       <!-- Right Side: Language Selector & Date/Time -->
       <div class="flex items-center space-x-2">
         <!-- Date/Time -->
-        <div class="flex items-center space-x-2 text-white">
+        <div class="flex items-center space-x-2 text-white md:none">
           <span>{{ currentDate }}</span>
           <span>{{ currentTime }}</span>
         </div>
@@ -57,5 +57,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
+.none {
+  display: none;
+}
 </style>

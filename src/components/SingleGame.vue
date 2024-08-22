@@ -2,6 +2,7 @@
   import { ref } from 'vue';
   import Button from './Button.vue';
   import LoginModal from './LoginModal.vue';
+  import { mapState, mapActions, mapMutations, mapGetters } from 'vuex';
 
   export default {
     components: {
@@ -22,9 +23,19 @@
         required: true,
       },
     },
+    computed: {
+      ...mapGetters(['isAuthenticated'])
+    },
     methods: {
       onClick(address) {
         this.$router.push(address)
+      },
+      onPlay() {
+        if (this.isAuthenticated) {
+          ///Game start logic
+        } else {
+          openModal();
+        }
       },
       closeModal() {
         this.isModalVisible = false;
@@ -38,25 +49,25 @@
 
 <template>
   <div class="group w-full relative mx-auto h-auto overflow-hidden rounded-lg">
-    <div class="opacity-0 group-hover:opacity-100 duration-700 absolute inset-0 z-10 text-white font-semibold">
+    <div class="opacity-0 group-hover:opacity-100 duration-700 absolute mt-1 inset-0 z-10 text-white font-semibold">
       <span> {{name}} </span>
     </div>
     <img :src="imageUrl" alt="image"
       class="w-full h-auto relative z-0 rounded-lg transition-all duration-700 group-hover:scale-110 group-hover:opacity-20">
-      <Button class="btn opacity-0 group-hover:opacity-100 hover:scale-110" text="Play" @click="openModal" />
+      <Button class="btn opacity-0 group-hover:opacity-100 hover:scale-110" text="Play" @click="onPlay" />
   </div>
 
   <LoginModal v-if="this.isModalVisible" :isVisible="this.isModalVisible" title="Authentication" @close="closeModal">
     <div>
         <input 
           type="text" 
-          id="username" 
+          id="username-modal" 
           placeholder="Username" 
           class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
         <input 
           type="password" 
-          id="password" 
+          id="password-modal" 
           placeholder="Password" 
           class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 mt-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
