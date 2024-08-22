@@ -1,8 +1,8 @@
-#Esoterica test project
+# Esoterica test project
 
 This is a Vue 3 project built with Vite, Tailwind CSS, Vuex, and Vue Router.
 
-##Project Setup
+## Project Setup
 1. Install Dependencies
 
 Run the following command to install the required dependencies:
@@ -37,7 +37,7 @@ To locally preview the production build, run:
 npm run preview
 ```
 
-##Project Structure
+## Project Structure
 
 The project follows a typical Vue 3 structure:
 
@@ -57,6 +57,6 @@ Vuex: State management library for Vue.
 Vue Router: The official router for Vue.js.
 
 
-##License
+## License
 
 This project is licensed under the MIT License.
